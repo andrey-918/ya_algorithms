@@ -1,0 +1,41 @@
+{\rtf1\ansi\ansicpg1251\cocoartf2758
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 def get_answer(a):\
+    print('Initial array:')\
+    z = '**********'\
+    print(', '.join(a))\
+    answer = a.copy()\
+\
+    f = 0\
+    while f != len(a[0]):\
+        f += 1\
+        bucket = \{i: [] for i in range(10)\}\
+        print(z)\
+        print('Phase', f)\
+        for x in answer:\
+            bucket[int(x[-f])].append(x)\
+        answer = []\
+        for x in bucket:\
+            if bucket[x] == []:\
+                print('Bucket ' + str(x) + ': empty')\
+                continue\
+            print('Bucket ' + str(x) + ':', ', '.join(bucket[x]))\
+            for i in bucket[x]:\
+                answer.append(i)\
+\
+    print(z)\
+    print("Sorted array:")\
+    print(', '.join(answer))\
+\
+\
+with open('input.txt', 'r') as f:\
+    a = list(map(str, f.read().split()))\
+\
+a.pop(0)\
+get_answer(a)\
+}

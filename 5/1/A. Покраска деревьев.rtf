@@ -1,0 +1,31 @@
+{\rtf1\ansi\ansicpg1251\cocoartf2761
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 #include <iostream>\
+using namespace std;\
+\
+int answerFunc(int P, int V, int Q, int M) \{\
+    int answer = 0;\
+    int left1 = P - V;\
+    int left2 = Q - M;\
+    int right1 = P + V;\
+    int right2 = Q + M;\
+    answer = max(right1, right2) - min(left1, left2) + 1;\
+    if( min(right1, right2) < max(left1, left2) ) \{\
+        answer -= max(left1, left2) - min(right1, right2) - 1;\
+    \}\
+    return answer;\
+\}\
+\
+int main()\{\
+\
+    int P = 0, V = 0, M  = 0, Q = 0;\
+    cin >> P >> V;\
+    cin >> Q >> M;\
+    cout << answerFunc(P, V, Q, M);\
+    return 0;\
+\}}
